@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>وكالة الإبداع للدعاية والإعلان - معرض أعمالنا</title>
+    
+    <!-- استدعاء أيقونات Font Awesome للواتساب، الاتصال، والفرشاة -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* رأس الموقع */
+        header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        header h1 { margin: 0; font-size: 2.5rem; }
+        header p { margin: 12px 0 0 0; opacity: 0.9; font-size: 1.2rem; }
+
+        /* قسم إنشاء تصميم خاص قبل الصور */
+        .custom-design-section {
+            max-width: 1200px;
+            margin: 40px auto 0 auto;
+            padding: 0 20px;
+        }
+        .custom-box {
+            background: linear-gradient(135deg, #ff9900, #ff5500);
+            color: white;
+            border-radius: 15px;
+            padding: 35px;
+            text-align: center;
+            box-shadow: 0 6px 15px rgba(255, 85, 0, 0.3);
+        }
+        .custom-box h2 {
+            margin: 0 0 12px 0;
+            font-size: 2rem;
+        }
+        .custom-box p {
+            margin: 0 0 25px 0;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        .btn-custom {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: #ffffff;
+            color: #ff5500;
+            text-decoration: none;
+            padding: 16px 35px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .btn-custom:hover {
+            background-color: #f0f0f0;
+            transform: scale(1.03);
+        }
+
+        /* شبكة العرض الكبيرة والمليئة لـ 8 كروت فقط */
+        .gallery-container {
+            max-width: 1240px;
+            margin: 40px auto 60px auto;
+            padding: 0 20px;
+            display: grid;
+            /* تم تكبير الحد الأدنى للكارت من 280px إلى 450px ليصبح ضخم وممتلئ */
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 35px;
+        }
+
+        /* كارت التصميم المطور */
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+
+        /* المواصفات */
+        .specs {
+            padding: 20px;
+            background: #fafbfc;
+            border-bottom: 2px solid #f0f2f5;
+        }
+        .specs h3 {
+            margin: 0 0 12px 0;
+            color: #1e3c72;
+            font-size: 1.3rem;
+            border-right: 5px solid #1e3c72;
+            padding-right: 10px;
+        }
+        .specs ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .specs li {
+            font-size: 14px;
+            color: #4a5568;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .specs li strong { color: #1a202c; }
+
+        /* مربع الصورة الكبير جداً لتعبئة الشاشة */
+        .image-box {
+            width: 100%;
+            height: 380px; /* تم تكبير الارتفاع لتبدو الصور ضخمة واحترافية */
+            overflow: hidden;
+            background-color: #e2e8f0;
+        }
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* أزرار طلب الواتساب والاتصال */
+        .action-area {
+            padding: 20px;
+            text-align: center;
+            background: #fff;
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px; /* مسافة بين زر الواتساب وزر الاتصال */
+        }
+        .btn-order {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: #25D366;
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 15px;
+            transition: background 0.3s;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .btn-order:hover {
+            background-color: #1ebd58;
+        }
+        
+        /* زر الاتصال الهاتفي الجديد */
+        .btn-call {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: #1e3c72;
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 15px;
+            transition: background 0.3s;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .btn-call:hover {
+            background-color: #122548;
+        }
+
+        /* للتوافق مع الشاشات الصغيرة جداً كالموبايل */
+        @media (max-width: 500px) {
+            .gallery-container {
+                grid-template-columns: 1fr;
+            }
+            .image-box {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>وكالة الإبداع للدعاية والإعلان</h1>
+        <p>معرض أعمالنا المتخصصة في لوحات الأكريليك، الكلادينج، والواجهات المضيئة</p>
+    </header>
+
+    <!-- قسم طلب تصميم مخصص وثابت في الأعلى -->
+    <div class="custom-design-section">
+        <div class="custom-box">
+            <h2>عندك فكرة معينة في دماغك وعايز تنفذها؟ 💡</h2>
+            <p>سواء كانت يافطة بمقاس خاص، أو لوجو مخصص لشركتك.. تواصل معنا ونفذ خيالك فوراً</p>
+            <a href="https://wa.me/201040979923?text=أهلاً بك، أريد طلب تصميم مخصص بمواصفات خاصة" target="_blank" class="btn-custom">
+                <i class="fas fa-paint-brush"></i> أرسل مواصفات تصميمك الخاص
+            </a>
+        </div>
+    </div>
+
+    <!-- شبكة الـ 8 كروت الكبيرة -->
+    <div class="gallery-container">
+
+        <!-- كارت 1 -->
+        <div class="card">
+            <div class="specs">
+                <h3>لوحة واجهة Mitsubishi ممتدة (كود 101)</h3>
+                <ul>
+                    <li><span>الخامة:</span> <strong>أكريليك صب مستورد مقاوم للعوامل الجوية</strong></li>
+                    <li><span>الإضاءة:</span> <strong>إضاءة LED داخلية مكثفة موفرة للطاقة</strong></li>
+                </ul>
+            </div>
+            <div class="image-box">
+                <img src="Screenshot 2026-06-07 054519.png" alt="واجهة ميتسوبيشي">
+            </div>
+            <div class="action-area">
+                <a href="https://wa.me/201040979923?text=أهلاً بك، أريد طلب تصميم مشابه للكود 101" target="_blank" class="btn-order">
+                    <i class="fab fa-whatsapp"></i> أطلب تصميم مشابه عبر الواتساب
+                </a>
+                <a href="tel:01105005186" class="btn-call">
+                    <i class="fas fa-phone-alt"></i> إتصل بنا الآن
+                </a>
+            </div>
+        </div>
+
+        <!-- كارت 2 -->
+        <div class="card">
+            <div class="specs">
+                <h3>لوحة جدارية إسلامية "الشهادتين" (كود 102)</h3>
+                <ul>
+                    <li><span>النوع:</span> <strong>قص ليزر دقيق CNC على ألواح خشبية/معدنية</strong></li>
+                    <li><span>الاستخدام:</span> <strong>ديكورات داخلية فاخرة للمكاتب والمنازل</strong></li>
+                </ul>
+            </div>
+            <div class="image-box">
+                <img src="Screenshot 2026-06-07 044911.png" alt="لوحة الشهادتين">
+            </div>
+            <div class="action-area">
+                <a href="https://wa.me/201040979923?text=أهلاً بك، أريد طلب تصميم مشابه للكود 102" target="_blank" class="btn-order">
+                    <i class="fab fa-whatsapp"></i> أطلب تصميم مشابه عبر الواتساب
+                </a>
+                <a href="tel:01105005186" class="btn-call">
+                    <i class="fas fa-phone-alt"></i> إتصل بنا الآن
+                </a>
+            </div>
+        </div>
+
+        <!-- كارت 3 -->
+        <div class="card">
+            <div class="specs">
+                <h3>قواطع جدارية بنقوش إسلامية هندسية (كود 103)</h3>
+                <ul>
+                    <li><span>الخامة:</span> <strong>ألوفوند / MDF مفرغ بالليزر</strong></li>
+                    <li><span>الميزة:</span> <strong>تقسيم مساحات وديكور راقٍ جداً</strong></li>
+                </ul>
+            </div>
+            <div class="image-box">
+                <img src="Screenshot 2026-06-07 045053.png" alt="نقوش هندسية">
+            </div>
+            <div class="action-area">
+                <a href="https://wa.me/201040979923?text=أهلاً بك، أريد طلب تصميم مشابه للكود 103" target="_blank" class="btn-order">
+                    <i class="fab fa-whatsapp"></i> أطلب تصميم مشابه عبر الواتساب
+                </a>
+                <a href="tel:01105005186" class="btn-call">
+                    <i class="fas fa-phone-alt"></i> إتصل بنا الآن
+                </a>
+            </div>
+        </div>
+
+        <!-- كارت 4 -->
+        <div class="card">
+            <div class="specs">
+                <h3>يافطة عيادة طبية مضيئة ثلاثية الأبعاد (كود 104)</h3>
+                <ul>
+                    <li><span>الخامة:</span> <strong>حروف أكريليك بارزة مطعمة بإضاءة جانبية</strong></li>
+                    <li><span>الهيكل:</span> <strong>شاسيه حديدي مبطن بالكلادينج الأبيض</strong></li>
+                </ul>
+            </div>
+            <div class="image-box">
+                <img src="Screenshot 2026-06-07 045235.png" alt="يافطة عيادة طبية">
+            </div>
+            <div class="action-area">
+                <a href="https://wa.me/201040979923?text=أهلاً بك، أريد طلب تصميم مشابه للكود 104" target="_blank" class="btn-order">
+                    <i class="fab fa-whatsapp"></i> أطلب تصميم مشابه عبر الواتساب
+                </a>
+                <a href="tel:01105005186" class="btn-call">
+                    <i class="fas fa-phone-alt"></i> إتصل بنا الآن
+                </a>
+            </div>
+        </div>
+
+        <!-- كارت 5 -->
+        <div class="card">
+            <div class="specs">
+                <h3>شاشة عرض LED خارجية للمحلات (كود 105)</h3>
+                <ul>
+                    <li><span>النوع:</span> <strong>لوحة فيديو نصية وغرافيك عالية السطوع</strong></li>
+                    <li><span>المميزات:</span> <strong>مقاومة تامة للمطر والشمس مع تحكم ذكي</strong></li>
+                </ul>
+            </div>
+            <div class="image-box">
+                <img src="Screenshot 2026-06-07 045411.png" alt="شاشة ليد متحركة">
+            </div>
+            <div class="action-area">
+                <a href="https://wa.me/201040979923?text=أهلاً بك، أريد طلب تصميم مشابه للكود 105" target="_blank" class="btn-order">
+                    <i class="fab fa-whatsapp"></i> أطلب تصميم مشابه عبر الواتساب
+                </a>
+                <a href="tel:01105005186" class="btn-call">
+                    <i class="fas fa-phone-alt"></i> إتصل بنا الآن
+                </a>
+            </div>
+        </div>
+
+        <!-- كارت 6 -->
+        <div class="card">
+            <div class="specs">
+                <h3>مكتب ستاند أكريليك للمدراء "Sales Director" (كود 106)</h3>
+                <ul>
+                    <li><span>الخامة:</span> <strong>أكريليك أسود فاخر مع كتابة ذهبية حرارية</strong></li>
+                    <li><span>الاستخدام:</span> <strong>مكاتب الشركات، الهدايا الدعائية، واللافتات الاسمية</strong></li>
+                </ul>
+            </div>
+            <div class="image-box">
+                <img src="Screenshot 2026-06-07 054201.png" alt="ستاند مكتب أكريليك">
+            </div>
+            <div class="action-area">
+                <a href="https://wa.me/201040979923?text=أهلاً بك، أريد طلب تصميم مشابه للكود 106" target="_blank" class="btn-order">
+                    <i class="fab fa-whatsapp"></i> أطلب تصميم مشابه عبر الواتساب
+                </a>
+                <a href="tel:01105005186" class="btn-call">
+                    <i class="fas fa-phone-alt"></i> إتصل بنا الآن
+                </a>
+            </div>
+        </div>
+
+        <!-- كارت 7 -->
+        <div class="card">
+            <div class="specs">
+                <h3>لوحة أكريليك مضيئة شعار Vodafone (كود 107)</h3>
+                <ul>
+                    <li><span>الخامة:</span> <strong>أكريليك بيور أحمر لامع عالي النقاء</strong></li>
+                    <li><span>التثبيت:</span> <strong>مسامير سبايدر كروم فاخرة للتثبيت الحائطي</strong></li>
+                </ul>
+            </div>
+            <div class="image-box">
+                <img src="Screenshot 2026-06-07 045610.png" alt="لوحة فودافون أكريليك">
+            </div>
+            <div class="action-area">
+                <a href="https://wa.me/201040979923?text=أهلاً بك، أريد طلب تصميم مشابه للكود 107" target="_blank" class="btn-order">
+                    <i class="fab fa-whatsapp"></i> أطلب تصميم مشابه عبر الواتساب
+                </a>
+                <a href="tel:01105005186" class="btn-call">
+                    <i class="fas fa-phone-alt"></i> إتصل بنا الآن
+                </a>
+            </div>
+        </div>
+
+        <!-- كارت 8 -->
+        <div class="card">
+            <div class="specs">
+                <h3>حروف استانلس ستيل مضيئة خلفية NAERSI (كود 108)</h3>
+                <ul>
+                    <li><span>الخامة:</span> <strong>استانلس ذهبي عيار 304 مضاد للصدأ</strong></li>
+                    <li><span>الإضاءة:</span> <strong>تأثير هالة مضيئة (Backlit) ناعم وفخم</strong></li>
+                </ul>
+            </div>
+            <div class="image-box">
+                <img src="Screenshot 2026-06-07 045703.png" alt="حروف استانلس بارزة">
+            </div>
+            <div class="action-area">
+                <a href="https://wa.me/201040979923?text=أهلاً بك، أريد طلب تصميم مشابه للكود 108" target="_blank" class="btn-order">
+                    <i class="fab fa-whatsapp"></i> أطلب تصميم مشابه عبر الواتساب
+                </a>
+                <a href="tel:01105005186" class="btn-call">
+                    <i class="fas fa-phone-alt"></i> إتصل بنا الآن
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
